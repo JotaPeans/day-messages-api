@@ -17,7 +17,10 @@ const app = new Elysia()
   )
   .group("/api", (group) => group.use(UserApp).use(MessagesApp))
   .mount(auth.handler)
-  .listen(config.PORT);
+  .listen({
+    hostname: "0.0.0.0",
+    port: config.PORT,
+  });
 
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
