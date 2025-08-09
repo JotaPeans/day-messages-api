@@ -34,7 +34,7 @@ ENV NODE_ENV=production
 
 RUN apt-get update && apt-get install -y libgcc-s1 && rm -rf /var/lib/apt/lists/*
 
-CMD ["./server"]
-
 EXPOSE 8080
 EXPOSE 3000
+
+CMD ["./server"]
