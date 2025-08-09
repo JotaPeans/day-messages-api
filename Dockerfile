@@ -14,7 +14,7 @@ COPY . .
 
 # RUN apt install openssl
 
-EXPOSE 3000
+EXPOSE 8080
 
 RUN bunx prisma generate
 RUN bun build --compile --minify-whitespace --minify-syntax --target bun --outfile server ./src/index.ts
