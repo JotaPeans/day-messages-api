@@ -15,8 +15,7 @@ const app = new Elysia()
       allowedHeaders: ["Content-Type", "Authorization"],
     })
   )
-  .group("/api", (group) => group.use(UserApp).use(MessagesApp))
-  .mount(auth.handler)
+  .group("/api", (group) => group.use(UserApp).use(MessagesApp).mount(auth.handler))
   .listen({
     hostname: "0.0.0.0",
     port: config.PORT,
