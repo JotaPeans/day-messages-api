@@ -22,13 +22,17 @@ RUN bun build \
 	--outfile server \
 	./src/index.ts
 
-FROM gcr.io/distroless/base
+FROM debian:bullseye-slim
 
 WORKDIR /app
 
 COPY --from=build /app/server server
+COPY --from=build /app/src/generated/prisma /app/src/generated/prisma
+COPY --from=build /app/node_modules/.prisma /app/node_modules/.prisma
 
 ENV NODE_ENV=production
+
+RUN apt-get update && apt-get install -y libgcc-s1 && rm -rf /var/lib/apt/lists/*
 
 CMD ["./server"]
 
