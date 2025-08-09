@@ -9,7 +9,7 @@ import { MessagesApp } from "./messages";
 const app = new Elysia()
   .use(
     cors({
-      origin: config.CORS_ORIGIN,
+      origin: config.CORS_ORIGIN.split(","),
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
       credentials: true,
       allowedHeaders: ["Content-Type", "Authorization"],
