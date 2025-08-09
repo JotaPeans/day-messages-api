@@ -11,7 +11,6 @@ RUN bun install
 
 # Copie o restante do código
 COPY . .
-COPY .env .env
 
 # RUN apt install openssl
 
