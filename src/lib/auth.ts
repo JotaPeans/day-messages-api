@@ -34,5 +34,12 @@ export const auth = betterAuth({
     requireEmailVerification: false,
     autoSignIn: true,
   },
+  socialProviders: {
+    google: {
+      enabled: true,
+      clientId: config.GOOGLE_CLIENT_ID!,
+      clientSecret: config.GOOGLE_CLIENT_SECRET!,
+    },
+  },
   trustedOrigins: config.BETTER_AUTH_TRUSTED_ORIGINS?.split(",") ?? [],
 });
