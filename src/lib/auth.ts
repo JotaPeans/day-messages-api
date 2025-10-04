@@ -12,10 +12,6 @@ export const auth = betterAuth({
     database: {
       generateId: false,
     },
-    crossSubDomainCookies: {
-        enabled: true,
-        domain: "https://day-messages-ui-production.up.railway.app", // your domain
-    },
     cookies: {
       session_token: {
         name: "session_token",
