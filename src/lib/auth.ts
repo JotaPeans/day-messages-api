@@ -12,6 +12,14 @@ export const auth = betterAuth({
     database: {
       generateId: false,
     },
+    cookies: {
+      session_token: {
+        name: "session_token",
+        attributes: {
+          sameSite: "Strict",
+        },
+      },
+    },
   },
   user: {
     additionalFields: {
